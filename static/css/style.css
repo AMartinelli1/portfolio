@@ -1,0 +1,330 @@
+/* Base */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial;
+  background: #0b1220;          /* navy */
+  color: #ffffff;
+  transition: background 500ms ease, color 500ms ease;
+}
+
+/* Athlete mode background */
+body.athlete-mode {
+  background: #f2c94c;          /* yellow */
+  color: #111111;
+}
+
+.wrap {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+  padding: 48px 0 60px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  margin: 0 0 10px;
+  font-size: 44px;
+  line-height: 1.05;
+}
+
+.hero-sub {
+  margin: 0;
+  color: rgba(255,255,255,0.70);
+}
+
+/* Make hero-sub readable in athlete mode */
+body.athlete-mode .hero-sub {
+  color: rgba(0,0,0,0.65);
+}
+
+/* Toggle */
+.portfolio-switch {
+  display: flex;
+  justify-content: center;
+  margin: 26px 0 18px;
+}
+
+.segmented {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  width: min(520px, 92vw);
+}
+
+.seg-btn {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.seg-btn.is-active {
+  color: rgba(255,255,255,0.95);
+}
+
+body.athlete-mode .segmented {
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.10);
+}
+
+body.athlete-mode .seg-btn {
+  color: rgba(0,0,0,0.65);
+}
+
+body.athlete-mode .seg-btn.is-active {
+  color: rgba(0,0,0,0.90);
+}
+
+.seg-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc(50% - 9px);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: transform 220ms ease;
+}
+
+body.athlete-mode .seg-indicator {
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,0.14);
+}
+
+.segmented[data-active="athlete"] .seg-indicator {
+  transform: translateX(calc(100% + 6px));
+}
+
+/* Content area */
+.portfolio-content {
+  position: relative;
+}
+
+/* Fade between views */
+.view {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 250ms ease, transform 250ms ease;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+.view.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* Card */
+.card {
+  margin: 0 auto;
+  width: min(900px, 92vw);
+  padding: 26px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+body.athlete-mode .card {
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.10);
+}
+/* Student inner tabs */
+.student-tabs {
+  margin: 0 auto 14px;
+  width: min(900px, 92vw);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.student-tab {
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.student-tab.is-active {
+  background: rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.95);
+}
+
+/* Make tabs readable in athlete mode (even though they won't show, safe) */
+body.athlete-mode .student-tab {
+  border: 1px solid rgba(0,0,0,0.14);
+  background: rgba(0,0,0,0.06);
+  color: rgba(0,0,0,0.75);
+}
+body.athlete-mode .student-tab.is-active {
+  background: rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.90);
+}
+
+/* Student tab content show/hide */
+.student-content {
+  display: none;
+}
+
+.student-content.is-visible {
+  display: block;
+}
+
+/* Resume iframe */
+#resumeTab iframe {
+  width: min(900px, 92vw);
+  height: 780px;
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+}
+
+.about-text {
+  width: min(900px, 92vw);
+  margin: 0 auto 40px;
+}
+
+.about-images {
+  width: min(900px, 92vw);
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.about-images img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.about-images img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.about-text {
+  width: min(900px, 92vw);
+  margin: 0 auto 60px;
+  text-align: left;
+}
+
+.about-text h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.about-text p {
+  max-width: 75ch;
+  margin: 0 auto 18px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+.about-contact {
+  width: min(900px, 92vw);
+  margin: 50px auto 80px;
+  text-align: center;
+}
+
+.about-contact h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.about-contact p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.about-contact a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.about-contact a:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Athlete mode text contrast */
+body.athlete-mode .about-contact a {
+  color: rgba(0,0,0,0.85);
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+/* Athlete text section */
+.athlete-content {
+  width: min(900px, 92vw);
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.athlete-content h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.athlete-content p {
+  max-width: 75ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Athlete images */
+.athlete-images {
+  width: min(900px, 92vw);
+  margin: 0 auto 80px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.athlete-images img {
+  width: 100%;
+  max-width: 420px;
+  height: 340px;
+  object-fit: cover;
+  object-position: center 90%; 
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.athlete-images img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}

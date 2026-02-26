@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio | Andrew Martinelli{% endblock %}
+
+{% block content %}
+  <div class="wrap">
+
+    <section class="hero">
+      <h1 class="hero-title">Andrew Martinelli: Portfolio</h1>
+      <p class="hero-sub">Toggle to Switch</p>
+    </section>
+
+    <section class="portfolio-switch">
+      <div class="segmented" role="tablist" aria-label="Portfolio mode" data-active="student">
+        <button class="seg-btn is-active" data-view="student" role="tab" aria-selected="true">
+          Student
+        </button>
+        <button class="seg-btn" data-view="athlete" role="tab" aria-selected="false">
+          Athlete
+        </button>
+        <span class="seg-indicator" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="portfolio-content">
+      
+      <div id="studentView" class="view is-visible">
+
+  <div class="student-tabs">
+      <button class="student-tab is-active" data-tab="about">About Me</button>
+      <button class="student-tab" data-tab="resume">Resume</button>
+  </div>
+
+  <div id="aboutTab" class="student-content is-visible">
+
+  <div class="about-text">
+      <h2>About Me</h2>
+
+      <p>
+        Hello! My name is Andrew Martinelli. I’m a Computer Science student and Men’s Soccer collegiate athlete at St. Mary’s College of Maryland. My experience at SMCM has shaped how I approach opportunities: staying open-minded, being willing to learn, and always looking for ways to improve.
+      </p>
+
+      <p>
+        As an aspiring junior developer, I’m especially interested in full-stack development: building systems end-to-end, understanding how all the pieces connect, and creating applications that solve real problems. I enjoy working across the stack, thinking through architecture, and refining solutions until they are clean, scalable, and user-ready.
+      </p>
+
+      <p>
+        Beyond the classroom, I’m always looking to level up — whether that means strengthening my technical skillset, contributing to collaborative projects, or building tools that make complex concepts simpler for others. I value clarity, efficiency, and long-term growth in everything I work on.
+      </p>
+
+      <p>
+        I’m currently seeking opportunities where I can contribute to meaningful software projects, continue growing as a developer, and build strong technical foundations.
+      </p>
+  </div>
+
+  <div class="about-images">
+      <img src="/static/images/team.jpg" alt="Team Photo">
+      <img src="/static/images/headshot.jpg" alt="Andrew Headshot">
+  </div>
+  <div class="about-contact">
+  <h3>Contact</h3>
+  <p>
+    Email: <a href="mailto:amartinelli@smcm.edu">amartinelli@smcm.edu</a>
+  </p>
+  <p>
+    LinkedIn: 
+    <a href="https://www.linkedin.com/in/andrew-martinelli" target="_blank">
+      linkedin.com/in/andrew-martinelli
+    </a>
+  </p>
+</div>
+
+</div>
+
+  <div id="resumeTab" class="student-content">
+      <iframe src="/static/resume.pdf"></iframe>
+  </div>
+
+      </div>
+
+      <div id="athleteView" class="view">
+
+  <div class="athlete-content">
+    <h2>Athlete</h2>
+
+    <p>
+      As a collegiate Men’s Soccer player at St. Mary’s College of Maryland, 
+      I’ve developed leadership, resilience, and the ability to perform under pressure. 
+      Competing at the NCAA level has strengthened my discipline, adaptability, 
+      and commitment to continuous improvement.
+    </p>
+
+    <a 
+      href="https://youtu.be/z6MlefBOnp4" 
+      target="_blank" 
+      class="highlight-btn"
+    >
+      Watch Highlights →
+    </a>
+  </div>
+
+  <div class="athlete-images">
+    <img src="/static/images/teamhuddle.jpg" alt="Team Huddle">
+    <img src="/static/images/kickingpic.jpg" alt="Game Action Shot">
+  </div>
+
+</div>
+    </section>
+
+  </div>
+{% endblock %}
